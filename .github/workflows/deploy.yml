@@ -1,0 +1,24 @@
+name: "Deploy"
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  deploy-int:
+    name: "Deploy to AWS integration environment"
+    uses: ./.github/workflows/deploy-env.yml
+    with:
+      environment: integration
+      aws-account-id: "int-1234"
+    secrets: inherit
+
+  deploy-prod:
+    name: "Deploy to AWS production environment"
+    needs: [deploy-int]
+    uses: ./.github/workflows/deploy-env.yml
+    with:
+      environment: production
+      aws-account-id: "prod-1234"
+    secrets: inherit

@@ -1,0 +1,30 @@
+name: Deploy to AWS environment
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        description: "environment"
+        required: true
+        type: string
+      aws-account-id:
+        description: "AWS account id"
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install npm dependencies
+        uses: ./.github/actions/setup
+
+      - name: Build for environment
+        run: npm run build -- --mode ${{ inputs.environment }}
+
+      - name: Deploy to ${{ inputs.environment }}
+        run: echo "deployed to ${{ inputs.aws-account-id }}"

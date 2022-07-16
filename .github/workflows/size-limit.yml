@@ -1,0 +1,23 @@
+name: "Bundle Size"
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  size-limit:
+    runs-on: ubuntu-latest
+    env:
+      CI_JOB_NUMBER: 1
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install npm dependencies
+        uses: ./.github/actions/setup
+        with:
+          token: ${{ secrets.PACKAGES_TOKEN }}
+
+      - uses: andresz1/size-limit-action@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
