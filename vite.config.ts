@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import analyzer from "rollup-plugin-analyzer";
 import visualizer from "rollup-plugin-visualizer";
@@ -15,6 +15,6 @@ export default defineConfig({
   test: {
     globals: true,
     setupFiles: "./src/test/setup.ts",
-    environment: "jsdom",
+    environment: "happy-dom",
   },
 });

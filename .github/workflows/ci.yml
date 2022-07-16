@@ -7,7 +7,7 @@ on:
 
 jobs:
   ci:
-    name: Format, typecheck, build
+    name: Format, typecheck, build, test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,3 +24,6 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Test
+        run: npm run coverage
