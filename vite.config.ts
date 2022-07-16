@@ -10,6 +10,7 @@ export default defineConfig({
     sourcemap: true,
     rollupOptions: {
       plugins: [analyzer({ limit: 5 }), visualizer()],
+      output: { entryFileNames: "assets/index.js" },
     },
   },
   test: {
