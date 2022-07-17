@@ -7,7 +7,7 @@ on:
 
 jobs:
   ci:
-    name: Format, typecheck, build, test
+    name: Format, typecheck, build, test, coverage, bundle size check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,7 +28,16 @@ jobs:
       - name: Test
         run: npm run coverage
 
-      - uses: andresz1/size-limit-action@v1
+      - name: Bundle size
+        uses: andresz1/size-limit-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           skip_step: build
+
+      - name: Deploy reports to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./reports
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"

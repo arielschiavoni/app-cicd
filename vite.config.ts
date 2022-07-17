@@ -1,6 +1,5 @@
 import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
-import analyzer from "rollup-plugin-analyzer";
 import visualizer from "rollup-plugin-visualizer";
 
 // https://vitejs.dev/config/
@@ -9,7 +8,7 @@ export default defineConfig({
   build: {
     sourcemap: true,
     rollupOptions: {
-      plugins: [analyzer({ limit: 5 }), visualizer()],
+      plugins: [visualizer({ filename: "reports/bundle/index.html" })],
       output: { entryFileNames: "assets/index.js" },
     },
   },
@@ -17,5 +16,9 @@ export default defineConfig({
     globals: true,
     setupFiles: "./src/test/setup.ts",
     environment: "happy-dom",
+    coverage: {
+      reporter: "html",
+      reportsDirectory: "reports/coverage",
+    },
   },
 });
