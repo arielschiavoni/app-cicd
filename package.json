@@ -22,7 +22,7 @@
     "@size-limit/preset-app": "7.0.8",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.4.0",
-    "@types/react": "18.0.20",
+    "@types/react": "18.0.21",
     "@types/react-dom": "18.0.6",
     "@vitejs/plugin-react": "2.1.0",
     "@vitest/coverage-c8": "0.23.4",
@@ -32,10 +32,10 @@
     "msw": "0.47.3",
     "prettier": "2.7.1",
     "rollup-plugin-analyzer": "4.0.0",
-    "rollup-plugin-visualizer": "5.8.1",
+    "rollup-plugin-visualizer": "5.8.2",
     "size-limit": "7.0.8",
-    "typescript": "4.8.3",
-    "vite": "3.1.2",
+    "typescript": "4.8.4",
+    "vite": "3.1.3",
     "vitest": "0.23.4"
   }
 }
