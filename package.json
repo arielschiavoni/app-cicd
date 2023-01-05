@@ -35,7 +35,7 @@
     "rollup-plugin-visualizer": "5.9.0",
     "size-limit": "7.0.8",
     "typescript": "4.9.4",
-    "vite": "3.2.5",
+    "vite": "4.0.4",
     "vitest": "0.26.3"
   }
 }
