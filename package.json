@@ -33,7 +33,7 @@
     "prettier": "2.8.1",
     "rollup-plugin-analyzer": "4.0.0",
     "rollup-plugin-visualizer": "5.9.0",
-    "size-limit": "7.0.8",
+    "size-limit": "8.1.0",
     "typescript": "4.9.4",
     "vite": "3.2.5",
     "vitest": "0.26.3"
